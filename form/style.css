@@ -1,0 +1,117 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #B3C8CF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #000000;
+}
+
+input[type="number"],input[type="text"], input[type="email"], input[type="date"], input[type="password"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px;
+    
+}
+
+.form-group {
+    margin-bottom: 20px;
+    
+}
+
+.form-group label {
+    display: inline-block;
+    margin-right: 10px;
+    
+    
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid rgb(92, 255, 92);
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #00a23b;
+    color: rgb(255, 255, 255);
+    transition: .5;
+    box-shadow: 0 0 20px white;
+}
+
+button[type="reset"] {
+    background-color: #ff1100;
+}
+
+button:hover {
+
+   font-weight: 400;
+    transition: .5s;
+    color: #000000;
+}
+
+.form-footer {
+    text-align: center;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin-left: 10%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4c93af;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Student Information Form</title>
+</head>
+<body>
+
+    <h1>Student Information</h1>
+
+    <form id="studentForm">
+        <!-- ID -->
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" required>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Mobile -->
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <!-- Religion -->
+        <div class="form-group">
+            <label for="religion">Religion:</label>
+            <select id="religion" name="religion" required>
+                <option value="">Choose Religion</option>
+                <option value="Islam">Islam</option>
+                <option value="Christianity">Christianity</option>
+                <option value="Hinduism">Hinduism</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="form-group" >
+            <label  >Hobbies:</label><br>
+            <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+            <label style="font-weight: normal;" for="hobby1">Reading</label><br>
+            <input type="checkbox" id="hobby2" name="hobbies" value="writing">
+            <label style="font-weight: normal;" for="hobby2">writing</label><br>
+            <input type="checkbox" id="hobby3" name="hobbies" value="gardening">
+            <label style="font-weight: normal;" for="hobby3">Gardening</label><br>
+            <input type="checkbox" id="hobby4" name="hobbies" value="fishing">
+            <label style="font-weight: normal;" for="hobby4">Fishing</label><br>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <!-- Buttons -->
+        <div class="form-footer">
+            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="reset" onclick="resetForm()">Reset</button>
+        </div>
+
+    </form>
+
+    <!-- Table to display data -->
+    <h1 id="submittedDataHeader" style="display: none; text-align: center;">Submitted Data</h1>
+    <table id="dataTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script src="form.js"></script>
+
+</body>
+</html>

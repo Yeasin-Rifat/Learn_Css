@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Student Information Form</title>
+</head>
+<body>
+
+    <h1>Student Information</h1>
+
+    <form id="studentForm">
+        <!-- ID -->
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" required>
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Mobile -->
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+
+        <!-- Religion -->
+        <div class="form-group">
+            <label for="religion">Religion:</label>
+            <select id="religion" name="religion" required>
+                <option value="">Choose Religion</option>
+                <option value="Islam">Islam</option>
+                <option value="Christianity">Christianity</option>
+                <option value="Hinduism">Hinduism</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <!-- Hobbies -->
+        <div class="form-group">
+            <label>Hobbies:</label><br>
+            <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+            <label for="hobby1">Reading</label><br>
+            <input type="checkbox" id="hobby2" name="hobbies" value="writing">
+            <label for="hobby2">writing</label><br>
+            <input type="checkbox" id="hobby3" name="hobbies" value="gardening">
+            <label for="hobby3">Gardening</label><br>
+            <input type="checkbox" id="hobby4" name="hobbies" value="fishing">
+            <label for="hobby4">Fishing</label><br>
+        </div>
+
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <!-- Buttons -->
+        <div class="form-footer">
+            <button type="button" onclick="submitForm()">Submit</button>
+            <button type="reset" onclick="resetForm()">Reset</button>
+        </div>
+
+    </form>
+
+    <!-- Table to display data -->
+    <h1 id="submittedDataHeader" style="display: none; text-align: center;">Submitted Information</h1>
+    <table id="dataTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        function submitForm() {
+            // Collect form data
+            const formData = {
+                id: document.getElementById("id").value,
+                name: document.getElementById("name").value,
+                mobile: document.getElementById("mobile").value,
+                email: document.getElementById("email").value,
+                dob: document.getElementById("dob").value,
+                religion: document.getElementById("religion").value,
+                gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '',
+                hobbies: [],
+                address: document.getElementById("address").value,
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            };
+
+            // Collect hobbies
+            document.querySelectorAll('input[name="hobbies"]:checked').forEach(function (checkbox) {
+                formData.hobbies.push(checkbox.value);
+            });
+
+            // Display the "Submitted Data" header and the table
+            const header = document.getElementById("submittedDataHeader");
+            const dataTable = document.getElementById("dataTable");
+            const tbody = dataTable.querySelector("tbody");
+            tbody.innerHTML = ""; // Clear any existing data in the table
+
+            // Show the header and table
+            header.style.display = "block";
+            dataTable.style.display = "table";
+
+            // Loop through the form data and insert rows into the table
+            for (const key in formData) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+
+                cell1.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                if (Array.isArray(formData[key])) {
+                    cell2.textContent = formData[key].join(", ");
+                } else {
+                    cell2.textContent = formData[key];
+                }
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                tbody.appendChild(row);
+            }
+        }
+
+        function resetForm() {
+            // Clear the table when reset is clicked
+            const header = document.getElementById("submittedDataHeader");
+            const dataTable = document.getElementById("dataTable");
+
+            // Hide the "Submitted Data" header and the table
+            header.style.display = "none";
+            dataTable.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
